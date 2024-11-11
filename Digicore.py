@@ -1,3 +1,7 @@
+'''
+Include author detail other infmoatmion as per the requirements 
+'''
+
 import getpass
 import hashlib
 import string as s
@@ -54,8 +58,8 @@ while True:
         print(f"your username is {Username} your password is {encrypted_pass} your selected website is {url}")
 
         #save to file
-        with open('Digi.txt','a') as file:
-            file.write(f'{Username},{encrypted_pass},{url}\n')
+        with open('Digi.txt','a') as file: 
+            file.write(f'{Username},{encrypted_pass},{url}\n')#<----- This needs to be the encrypted_pass password. At the moment, it is just a plain text password
             print("information has been saved")
 
 
@@ -65,10 +69,10 @@ while True:
         print(f'{"username":<20} | {"password":<20} | {"url"}')
         print("=" * 65)
 
-        with open('Digi.txt','r') as file:
+        with open('Digi.txt','r') as file: #<------This will cause an error if the file does not exist. You can wrap it in a try statement to avoid that error. 
             for line in file:
                 Username,Password,url = line.strip().split(',')
-                print(f'{Username:<20} | {Password:<20} | {url:<20}\n')
+                print(f'{Username:<20} | {Password:<20} | {url:<20}\n')#<------ This needs to be the decrypted_pass password. At the moment, it is just a plain text password.
             
 
     elif choice == '3':
